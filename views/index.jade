@@ -1,16 +1,20 @@
-!!! 5
-html
-  head
-    title= title
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(href='/css/bootstrap.min.css', rel='stylesheet', media='screen')
-  body
-  .container              
-    h1 Say something meaningful here.
-    p.lead Say something worthwhile here.
-    a(href="/") Go home
-    br
-    a(href="/ping") Ping
+extends layout
 
-  script(src='http://code.jquery.com/jquery.js')
-  script(src='js/bootstrap.min.js')
+block content
+  #page-content-wrapper
+    .page-content.inset
+      .row
+        a#menu-toggle.btn.btn-default(href='#')
+          i.fa.fa-bars
+        .col-md-12
+          h1 Say something meaningful here.
+          p.lead Say something worthwhile here.
+          a(href="/") Go home
+          br
+          a(href="/ping") Ping
+
+  script
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("active");
+    });
